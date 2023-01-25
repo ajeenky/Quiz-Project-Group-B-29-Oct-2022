@@ -20,7 +20,7 @@ public class Questions {
 			Scanner sc = new Scanner(System.in);
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root");
-			PreparedStatement pstmt = con.prepareStatement("select * from quiz");
+			PreparedStatement pstmt = con.prepareStatement("select * from quiz order by rand()");
 			ResultSet res = pstmt.executeQuery();
 			while (res.next()) {
 				
