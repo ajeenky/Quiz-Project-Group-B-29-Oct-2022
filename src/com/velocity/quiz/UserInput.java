@@ -46,5 +46,21 @@ public class UserInput {
 			}
 		}
 	}
-	
+public void retrieveDataFromDB() {
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root");
+			pstmt = con.prepareStatement("select * from user_input order by Score DESC");
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				System.out.println(res.getInt(1)+" "+res.getString(2)+" "+res.getInt(3)+" "+res.getString(4));
+			}
+			
+			res.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

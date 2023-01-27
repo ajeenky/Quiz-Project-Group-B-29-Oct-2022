@@ -26,10 +26,11 @@ public class Questions {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root");
 			PreparedStatement pstmt = con.prepareStatement("select * from quiz order by rand()");
 			ResultSet res = pstmt.executeQuery();
-			
+			int i = 1;
 			while (res.next()) {
 				
-				System.out.println(res.getInt(1)+" "+res.getString(2));
+				System.out.println(i+" "+res.getString(2));
+				i++;
 				System.out.println(res.getString(3)+"  "+res.getString(4)+"  "+res.getString(5)+"  "+res.getString(6));
 				System.out.println("Enter a option");
 				String input = sc.next();

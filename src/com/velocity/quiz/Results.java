@@ -11,7 +11,8 @@ public class Results {
 //	Class C- 5
 //	Class D- <5 then its fail.
 	int num; 
-	
+	UserInput user = new UserInput();
+	FetchTheData ftd = new FetchTheData();
 	public void flowOfProgram() {
 		try {
 			System.out.println("Welcome all to this Quiz...");
@@ -35,7 +36,7 @@ public class Results {
 				questions.calculateScore();
 				int score = questions.calculateScore();
 				
-				UserInput user = new UserInput();
+				
 				System.out.println(" ");
 				System.out.println("Enter Student Id-->");
 				int id = sc.nextInt();
@@ -49,8 +50,19 @@ public class Results {
 				System.out.println("Your grade is --> "+grade);
 				System.out.println("Enter 1 for another quiz");
 				System.out.println("Enter 0 for exit");
-				int num = sc.nextInt();
+				num = sc.nextInt();
 		} while (num != 0);
+			System.out.println("List of Contestants : ");
+			user.retrieveDataFromDB();
+			System.out.println("Press 1 to check your score by Id or Press 0 to exit:");
+			int confirm = sc.nextInt();
+			
+			if(confirm ==1) {
+				ftd.getRecord();
+			}else if(confirm == 0) {
+				System.out.println("Thank you for your participation.");
+			}
+			
 			
 				sc.close();
 			
