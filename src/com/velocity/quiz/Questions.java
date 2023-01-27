@@ -48,11 +48,23 @@ public class Questions {
 				           }
 				         }
 					//Calculating the grade
+				        if(count>8 && count<=10) {
+			                grade="A";
+			             }else if(count>=6 && count<=8) {
+			            	 grade ="B";
+			             }else if(count>=5 && count<6) {
+			            	  grade ="C";
+			             }else if(count==5){
+			            	 System.out.println("Grade  D ");
+			             }else if(count>=0 && count<4) {
+			            	 grade = "Fail";
+			             }
+			             grace = grade;
 			             result=count;
 			             
 				} 
 				  System.out.println("your score is :: "+ result);
-				  System.out.println("Your Grade is :: "+ null);
+				  System.out.println("Your Grade is :: "+ grace);
 				      
 				  con.close();
 				  pstmt.close();
